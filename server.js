@@ -32,7 +32,7 @@ transporter.verify((err, success) => {
 app.post("/sendForm", function (req, res) {
     let mailOptions = {
       from: `${req.body.values.email}`,
-      to: 'eudescam20@gmail.com',
+      to: process.env.RECEIVE,
       subject: `Mensaje de: ${req.body.values.email}`,
       html: formularioAfiliacion(req.body.values),
     };
@@ -54,7 +54,7 @@ app.post("/sendForm", function (req, res) {
 app.post("/sendContact", function (req, res) {
     let mailOptions = {
       from: `${req.body.values.email}`,
-      to: 'eudescam20@gmail.com',
+      to: process.env.RECEIVE,
       subject: `Mensaje WEB de: ${req.body.values.name} ${req.body.values.lastName}`,
       html: formularioContactenos(req.body.values),
     };
